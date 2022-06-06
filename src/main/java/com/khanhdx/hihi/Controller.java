@@ -8,14 +8,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/khanhdx")
 public class Controller {
     @GetMapping("/hello")
-    public ResponseEntity<Object> hello (){
-        Object object = new Object(1,"DM thang Hung Vit");
-        return new ResponseEntity<>(object, HttpStatus.OK);
+    public ResponseEntity<List<Object>> hello (){
+        Object object1 = new Object(1,"DM thang Hung Vit");
+        Object object2 = new Object(2,"DM thang Hung Vit lan 2");
+        List<Object> objects = new ArrayList<>();
+        objects.add(object1);
+        objects.add(object2);
+        return new ResponseEntity<>(objects, HttpStatus.OK);
     }
 }
 
